@@ -10,6 +10,6 @@ git clone git@github.com:Slamdunk/slamdunk.github.io.git ./gh-pages-deployment
 cd gh-pages-deployment
 git checkout master
 
-rsync --quiet --archive --delete ../output_prod/ ./
+rsync --quiet --archive --filter="P .git*" --delete ../output_prod/ ./
 git add -A :/
 git commit -a -m "Deploying sculpin-generated pages to \`master\` branch"
