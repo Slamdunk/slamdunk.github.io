@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[Slamdunk Blog]]></title>
-    <link href="/blog/categories/personal.xml" rel="self"/>
+    <link href="/blog/tags/blog.xml" rel="self"/>
     <link href="/"/>
     <updated>2017-04-03T17:13:18+02:00</updated>
     <id>/</id>
