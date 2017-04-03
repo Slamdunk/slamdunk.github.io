@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[Slamdunk Blog]]></title>
+    <link href="/blog/tags/best practices.xml" rel="self"/>
+    <link href="/"/>
+    <updated>2017-04-03T16:52:39+02:00</updated>
+    <id>/</id>
+        <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[When to declare methods final]]></title>
+            <link href="/blog/2017/04/03/when-to-declare-methods-final/"/>
+            <updated>2017-04-03T00:00:00+02:00</updated>
+            <id>/blog/2017/04/03/when-to-declare-methods-final/</id>
+            <content type="html"><![CDATA[<p>TL;DR Always</p>
+]]></content>
+        </entry>
+    </feed>
