@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title><![CDATA[Slamdunk Blog]]></title>
+    <title><![CDATA[Slamdunk&#039;s Blog]]></title>
     <link href="https://slamdunk.github.io/atom.xml" rel="self"/>
     <link href="https://slamdunk.github.io/"/>
-    <updated>2017-04-04T09:31:39+02:00</updated>
+    <updated>2017-04-04T10:05:58+02:00</updated>
     <id>https://slamdunk.github.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -12,6 +12,8 @@
             <updated>2017-04-03T00:00:00+02:00</updated>
             <id>https://slamdunk.github.io/blog/here-we-are/</id>
             <content type="html"><![CDATA[<p>Hi there =)</p>
+
+<p>Thank you <a href="https://github.com/Ocramius/ocramius.github.com">Ocramius</a> for the code (I stole you).</p>
 ]]></content>
         </entry>
     </feed>
