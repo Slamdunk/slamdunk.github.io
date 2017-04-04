@@ -12,13 +12,13 @@ use:
         <header>
             <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
         </header>
-        <div>
+        <p>
             {% if post.description %}
                 {{ post.description }}
             {% else %}
                 {{ post.summary }}
             {% endif %}
-        </div>
+        </p>
 
         <p class="post-spec">
             <time class="post-date" datetime="{{ post.date | date('Y-m-d') }}">

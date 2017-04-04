@@ -1,5 +1,12 @@
-h4 small
-{
+body {
+    font-family: Georgia, serif;
+    font-size: 1.7em;
+    line-height: 1.5em;
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    padding-bottom: 40px;
+}
+
+h4 small {
     display: block;
     font-size: 60%;
     color: #888;
@@ -22,11 +29,5 @@ footer.container {
 @media (max-width: 767px) {
     .sidebar {
         padding-top: 30px;
-    }
-}
-@media (min-width: 980px) {
-    body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        padding-bottom: 40px;
     }
 }
