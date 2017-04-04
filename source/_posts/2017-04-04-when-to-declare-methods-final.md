@@ -2,6 +2,7 @@
 title: When to declare methods final
 tags: [php, oop, best practices]
 summary: So, you already have all your classes final, yeah. But you still use abstract classes, don't you?
+tweet: 849249053623889922
 ---
 
 **TL;DR** Every methods in abstract classes should be final.
