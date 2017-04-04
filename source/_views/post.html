@@ -54,11 +54,23 @@
     var disqus_shortname = '{{site.disqus.shortname}}'; // required: replace example with your forum shortname
 
 
-    {% if page.disqus.identifier  %}var disqus_identifier = '{{page.disqus.identifier}}'; {% endif %}
+    {% if page.disqus.identifier  %}
+        var disqus_identifier = '{{page.disqus.identifier}}';
+    {% else %}
+        var disqus_identifier = '{{page.url}}';
+    {% endif %}
 
-    {% if page.disqus.title %}var disqus_title = '{{page.disqus.title}}';{% endif %}
+    {% if page.disqus.title %}
+        var disqus_title = '{{page.disqus.title}}';
+    {% else %}
+        var disqus_identifier = '{{page.title}}';
+    {% endif %}
 
-    {% if page.disqus.url %}var disqus_url = '{{page.disqus.url}}';{% endif %}
+    {% if page.disqus.url %}
+        var disqus_url = '{{page.disqus.url}}';
+    {% else %}
+        var disqus_identifier = '{{ site.url }}{{page.url}}';
+    {% endif %}
 
     {% if page.disqus.category_id %}var disqus_category_id = '{{page.disqus.category_id}}';{% endif %}
 
