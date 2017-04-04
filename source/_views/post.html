@@ -43,6 +43,9 @@
         {% endif %}
     </article>
 
+    {% if page.tweet %}
+    <div data-tweet-id="{{ page.tweet }}" class="twitter-tweet"></div>
+    {% endif %}
 
 {% if site.disqus.shortname and site.disqus.shortname != '' %}
 <div id="disqus_thread"></div>
