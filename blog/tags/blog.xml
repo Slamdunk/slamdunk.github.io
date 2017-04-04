@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[Slamdunk Blog]]></title>
-    <link href="/blog/tags/blog.xml" rel="self"/>
-    <link href="/"/>
-    <updated>2017-04-03T17:13:18+02:00</updated>
-    <id>/</id>
+    <link href="https://slamdunk.github.io/blog/tags/blog.xml" rel="self"/>
+    <link href="https://slamdunk.github.io/"/>
+    <updated>2017-04-04T09:20:49+02:00</updated>
+    <id>https://slamdunk.github.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[Here we are]]></title>
-            <link href="/blog/2017/04/03/here-we-are/"/>
+            <link href="https://slamdunk.github.io/blog/2017/04/03/here-we-are/"/>
             <updated>2017-04-03T00:00:00+02:00</updated>
-            <id>/blog/2017/04/03/here-we-are/</id>
+            <id>https://slamdunk.github.io/blog/2017/04/03/here-we-are/</id>
             <content type="html"><![CDATA[<p>Hi there =)</p>
 ]]></content>
         </entry>
