@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[Slamdunk&#039;s Blog]]></title>
-    <link href="https://slamdunk.github.io/atom.xml" rel="self"/>
+    <link href="https://slamdunk.github.io/blog/tags/best practices.xml" rel="self"/>
     <link href="https://slamdunk.github.io/"/>
     <updated>2017-04-04T15:11:16+02:00</updated>
     <id>https://slamdunk.github.io/</id>
@@ -127,16 +127,6 @@ and children.</p>
 
 <p>I wrote another fixer for this purpose, <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalAbstractPublicFixer.php">FinalAbstractPublicFixer</a> (work <em>in
 fieri</em>), to ensure no developer in the team can fall again in that bad design.</p>
-]]></content>
-        </entry>
-            <entry>
-            <title type="html"><![CDATA[Here we are]]></title>
-            <link href="https://slamdunk.github.io/blog/here-we-are/"/>
-            <updated>2017-04-03T00:00:00+02:00</updated>
-            <id>https://slamdunk.github.io/blog/here-we-are/</id>
-            <content type="html"><![CDATA[<p>Hi there =)</p>
-
-<p>Thank you <a href="https://github.com/Ocramius/ocramius.github.com">Ocramius</a> for the code (I stole you).</p>
 ]]></content>
         </entry>
     </feed>
