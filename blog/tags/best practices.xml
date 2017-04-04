@@ -3,7 +3,7 @@
     <title><![CDATA[Slamdunk&#039;s Blog]]></title>
     <link href="https://slamdunk.github.io/blog/tags/best practices.xml" rel="self"/>
     <link href="https://slamdunk.github.io/"/>
-    <updated>2017-04-04T15:17:03+02:00</updated>
+    <updated>2017-04-04T16:11:30+02:00</updated>
     <id>https://slamdunk.github.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -11,7 +11,7 @@
             <link href="https://slamdunk.github.io/blog/when-to-declare-methods-final/"/>
             <updated>2017-04-04T00:00:00+02:00</updated>
             <id>https://slamdunk.github.io/blog/when-to-declare-methods-final/</id>
-            <content type="html"><![CDATA[<p><strong>TL;DR</strong> Every methods in abstract classes should be final.</p>
+            <content type="html"><![CDATA[<p><strong>TL;DR</strong> Every method in abstract classes should be final.</p>
 
 <p>I am stupid and I want to understand each and every functionality of a piece of
 code in one screen.</p>
@@ -45,7 +45,7 @@ involved</li>
 <p>Still, a typehint on abstract classes exposes an undefined behaviour until you
 read every implementation class along with the abstract one.</p>
 
-<h2 id="inheritance-is-unecessary%2C-but-if-you-use-it%2C-make-it-final">Inheritance is unecessary, but if you use it, make it final</h2>
+<h2 id="inheritance-is-unnecessary%2C-but-if-you-use-it%2C-make-it-final">Inheritance is unnecessary, but if you use it, make it final</h2>
 
 <p>Good interface abstraction and composition are enough for every scenario, but
 may be verbose.</p>
@@ -122,11 +122,11 @@ which is bad, <strong>but</strong> al least the two classes have strictly separa
 distinguishable behaviours, which is good.</p>
 
 <p>If you are going to move from an inheritance nightmare to a composition/clear-API
-heaven, the first step for sure is to segregate responsabilities between parents
+heaven, the first step for sure is to segregate responsibilities between parents
 and children.</p>
 
 <p>I wrote another fixer for this purpose, <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalAbstractPublicFixer.php">FinalAbstractPublicFixer</a> (work <em>in
-fieri</em>), to ensure no developer in the team can fall again in that bad design.</p>
+fieri</em>), to make sure no developer in the team can fall again in that bad design.</p>
 ]]></content>
         </entry>
     </feed>
