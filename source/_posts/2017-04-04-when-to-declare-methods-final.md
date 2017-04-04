@@ -5,7 +5,7 @@ summary: So, you already have all your classes final, yeah. But you still use ab
 tweet: 849249053623889922
 ---
 
-**TL;DR** Every methods in abstract classes should be final.
+**TL;DR** Every method in abstract classes should be final.
 
 I am stupid and I want to understand each and every functionality of a piece of
 code in one screen.
@@ -35,7 +35,7 @@ involved
 Still, a typehint on abstract classes exposes an undefined behaviour until you
 read every implementation class along with the abstract one.
 
-## Inheritance is unecessary, but if you use it, make it final
+## Inheritance is unnecessary, but if you use it, make it final
 
 Good interface abstraction and composition are enough for every scenario, but
 may be verbose.
@@ -111,11 +111,11 @@ which is bad, **but** al least the two classes have strictly separated and
 distinguishable behaviours, which is good.
 
 If you are going to move from an inheritance nightmare to a composition/clear-API
-heaven, the first step for sure is to segregate responsabilities between parents
+heaven, the first step for sure is to segregate responsibilities between parents
 and children.
 
 I wrote another fixer for this purpose, [FinalAbstractPublicFixer] (work *in
-fieri*), to ensure no developer in the team can fall again in that bad design.
+fieri*), to make sure no developer in the team can fall again in that bad design.
 
 [Ocramius]: https://twitter.com/Ocramius
 [When to declare classes final]: https://ocramius.github.io/blog/when-to-declare-classes-final/
