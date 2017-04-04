@@ -3,14 +3,14 @@
     <title><![CDATA[Slamdunk Blog]]></title>
     <link href="https://slamdunk.github.io/atom.xml" rel="self"/>
     <link href="https://slamdunk.github.io/"/>
-    <updated>2017-04-04T09:20:49+02:00</updated>
+    <updated>2017-04-04T09:31:39+02:00</updated>
     <id>https://slamdunk.github.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[Here we are]]></title>
-            <link href="https://slamdunk.github.io/blog/2017/04/03/here-we-are/"/>
+            <link href="https://slamdunk.github.io/blog/here-we-are/"/>
             <updated>2017-04-03T00:00:00+02:00</updated>
-            <id>https://slamdunk.github.io/blog/2017/04/03/here-we-are/</id>
+            <id>https://slamdunk.github.io/blog/here-we-are/</id>
             <content type="html"><![CDATA[<p>Hi there =)</p>
 ]]></content>
         </entry>
