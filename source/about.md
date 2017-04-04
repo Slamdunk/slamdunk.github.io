@@ -5,6 +5,6 @@ title: About
 ---
 # About me
 
-1. [Twitter](https://twitter.com/slamzoe)
-1. [Github](https://github.com/Slamdunk)
-1. [LinkedIn](https://www.linkedin.com/in/filippotessarotto/)
+1. Twitter: [slamzoe](https://twitter.com/slamzoe)
+1. Github: [slamdunk](https://github.com/slamdunk) ([this site](https://github.com/slamdunk/slamdunk.github.io/))
+1. LinkedIn: [filippotessarotto](https://www.linkedin.com/in/filippotessarotto/)

@@ -3,7 +3,7 @@ layout: default
 title: Slamdunk's blog - software development thoughts by Filippo Tessarotto
 generator: pagination
 pagination:
-    max_per_page: 3
+    max_per_page: 5
 use:
     - posts
 ---
@@ -13,16 +13,26 @@ use:
             <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
         </header>
         <div>
-            {{ post.blocks.content|raw }}
+            {% if post.description %}
+                {{ post.description }}
+            {% else %}
+                {{ post.summary }}
+            {% endif %}
         </div>
-        {% if post.meta.tags %}
-            <p class="tags">
-            Tags:
-            {% for tag in post.meta.tags %}
-            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-            </p>
-        {% endif %}
+
+        <p class="post-spec">
+            <time class="post-date" datetime="{{ post.date | date('Y-m-d') }}">
+                {{ post.date | date('Y-m-d') }}
+            </time>
+            {% if post.meta.tags %}
+                <span class="post-tags">
+                Tags:
+                {% for tag in post.meta.tags %}
+                <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                </span>
+            {% endif %}
+        </div>
     </article>
 {% endfor %}
 {% if page.pagination.previous_page or page.pagination.next_page %}
