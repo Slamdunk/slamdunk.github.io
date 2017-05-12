@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Google (it)</ShortName>
+    <Description>Google Search</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAwBQTFRFAAAAABNWKTB0DxKfCxakACKWGiWPHDiMFzuTACW9BDaxEyygFSqqEzO6Fj+/HDi1KCaLIzWZJTO2JDqxMTexDirLEzHFGjLGIC7FHUK0HEmwHFqxIm65MWC4G17RGV/bFVz2H1b3FWPPFWvSB2PoHWjnIFzKJlvLJ1PWL1vYN1vWIVjoWmivV3O8Qm7bRnTKLbdAPLVESLY5TLQ7VbM5T61VR7lKTbFBTbNFTbVSVrZKZYXYfI/Hb5rpfp7peqTWb6zvyxQOzhQZ0RAH1h8N3BoA0R8d3RgSxyMAziYAzSoA0igP0iQZ2yUazC4i1iAvho/QiY/ZgZnfo6nNqrbCr9L6vNf/v97wytLUws7+xNvjytPyydf/zdzz09n5yur5wfX/0OX/0uf/3ev/1/L/4d/s//jZ7u7/5Pb25fb95Pb/7//z7f/26vn/6P//7v//9vrr9f/r//Tt//jm/v/j+v7v/f/p8P/39//x9P/z8///9fv/9//79///+/X3//D2//T0//P///X6//X/+Pv0//nz/P/z/v/2+fv/+P////r4//r+//z6/v/4////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANYA7vAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNtCDrVoAAAD/SURBVChTVcFXI8NQGAbg1957z1J7FFFq77333ooqbVMcoYnqCOI4zfeb3bjxPKgf7O7td/T0DUh2h71LktDip3fm43fXqouLn9AqajiXr0bbC0rSq8b3Ak8LsJqe884sp498xynxrsgUGhkfyvOyZ+LiZP/1cwkN2mbqaRAvCOiCAsoi2oIjOXrMEECYGw9iAs1yZYViQAdFyfDH5mCRm8qjIagwTS6UmzVUqx1JHwQCDs8uj5R5WPxjacMeLoyDwsz8dXMZteQtTdh9o0f6vojfYpOwGsyZm7jh/rqXd+K22TTqVE1z25IzirOLymy3NIvWCKM/GunhFUj/zfwCD/RUROuFYZsAAAAASUVORK5CYII=</Image>
+    <Url type="application/x-suggestions+json" method="get" template="https://suggestqueries.google.com/complete/search?output=firefox&amp;client=firefox&amp;hl={moz:locale}&amp;q={searchTerms}"/>
+    <Url type="text/html" method="get" template="https://www.google.it/search">
+        <Param name="hl" value="it"/>
+        <Param name="q" value="{searchTerms}"/>
+    </Url>
+</OpenSearchDescription>
