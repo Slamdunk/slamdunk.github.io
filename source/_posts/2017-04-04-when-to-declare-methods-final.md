@@ -114,13 +114,13 @@ If you are going to move from an inheritance nightmare to a composition/clear-AP
 heaven, the first step for sure is to segregate responsibilities between parents
 and children.
 
-I wrote another fixer for this purpose, [FinalAbstractPublicFixer] (work *in
-fieri*), to make sure no developer in the team can fall again in that bad design.
+I wrote another fixer for this purpose, [FinalAbstractPublicFixer], to make sure
+no developer in the team can fall again in that bad design.
 
 [Ocramius]: https://twitter.com/Ocramius
 [When to declare classes final]: https://ocramius.github.io/blog/when-to-declare-classes-final/
 [PHP-CS-Fixer]: https://github.com/FriendsOfPHP/PHP-CS-Fixer
-[FinalInternalClassFixer]: https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalInternalClassFixer.php
+[FinalInternalClassFixer]: https://github.com/Slamdunk/php-cs-fixer-extensions/blob/master/lib/FinalInternalClassFixer.php
 [Doctrine Entities]: http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/architecture.html#entities
 [Template method pattern]: https://en.wikipedia.org/wiki/Template_method_pattern
-[FinalAbstractPublicFixer]: https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalAbstractPublicFixer.php
+[FinalAbstractPublicFixer]: https://github.com/Slamdunk/php-cs-fixer-extensions/blob/master/lib/FinalAbstractPublicFixer.php
