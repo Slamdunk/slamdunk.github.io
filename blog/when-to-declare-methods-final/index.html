@@ -70,7 +70,7 @@ code in one screen.</p>
 
 <p>I am bored to be confused, so after reading <a href="https://twitter.com/Ocramius">Ocramius</a> article "<a href="https://ocramius.github.io/blog/when-to-declare-classes-final/">When to declare classes final</a>"
 I ended up writing a custom <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP-CS-Fixer</a> fixer that puts <code>final</code> keyword
-on every non-abstract class - <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalInternalClassFixer.php">FinalInternalClassFixer</a> (except for
+on every non-abstract class - <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/master/lib/FinalInternalClassFixer.php">FinalInternalClassFixer</a> (except for
 <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/architecture.html#entities">Doctrine Entities</a> that relay on inheritance for proxying, grrrrr!).</p>
 
 <p>Of course this does not delete <code>abstract</code> classes, but at least I gained that:</p>
@@ -169,8 +169,8 @@ distinguishable behaviours, which is good.</p>
 heaven, the first step for sure is to segregate responsibilities between parents
 and children.</p>
 
-<p>I wrote another fixer for this purpose, <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/v1.0.1/lib/FinalAbstractPublicFixer.php">FinalAbstractPublicFixer</a> (work <em>in
-fieri</em>), to make sure no developer in the team can fall again in that bad design.</p>
+<p>I wrote another fixer for this purpose, <a href="https://github.com/Slamdunk/php-cs-fixer-extensions/blob/master/lib/FinalAbstractPublicFixer.php">FinalAbstractPublicFixer</a>, to make sure
+no developer in the team can fall again in that bad design.</p>
 
         </div>
         <hr />
