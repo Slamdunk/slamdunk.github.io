@@ -3,9 +3,167 @@
     <title><![CDATA[Slamdunk&#039;s Blog]]></title>
     <link href="https://slamdunk.github.io/blog/tags/best practices.xml" rel="self"/>
     <link href="https://slamdunk.github.io/"/>
-    <updated>2017-08-21T17:10:12+02:00</updated>
+    <updated>2018-05-02T08:33:42+02:00</updated>
     <id>https://slamdunk.github.io/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[Why not to use set_error_handler]]></title>
+            <link href="https://slamdunk.github.io/blog/why-not-to-use-set-error-handler/"/>
+            <updated>2017-10-12T00:00:00+02:00</updated>
+            <id>https://slamdunk.github.io/blog/why-not-to-use-set-error-handler/</id>
+            <content type="html"><![CDATA[<p><strong>TL;DR</strong> When an error raises, the final restore_error_handler() isn't called.
+Move to error_get_last() with @.</p>
+
+<p>If I search for <a href="https://secure.php.net/manual/en/function.set-error-handler.php">set_error_handler</a> usage in my <code>vendor/</code> folder I find almost
+a hundred sources using it. All major frameworks use it (ZendFramework,
+Symfony, Doctrine, [...]) and for a good reason.</p>
+
+<p>PHP functions in case of bad
+behaviour raise errors like an <code>E_WARNING</code> and libraries want and need to handle
+them in a manageble way.</p>
+
+<p>For example we may know that in a specific library an error can occur frequently
+because the input is not predictable nor standard, but you don't want to block
+the entire program flow.</p>
+
+<p>In this case, the library wraps the native PHP function around a <a href="https://secure.php.net/manual/en/function.set-error-handler.php">set_error_handler</a>
+and a <a href="https://secure.php.net/manual/en/function.restore-error-handler.php">restore_error_handler</a>, and if something goes wrong the error is wrapped
+in a specific library Exception:</p>
+
+<pre><code class="php">class FancyLibrary
+{
+    public static function decode($text, $fromCharset)
+    {
+        set_error_handler(function ($nr, $message) {
+            throw new FancyException('WUT? ' . $message);
+        });
+
+        $decodedText = iconv($fromCharset, 'UTF-8', $text);
+
+        restore_error_handler();
+
+        return $decodedText;
+    }
+}
+</code></pre>
+
+<p>So if it ever occurs that the user needs to handle the error in a non-blocking
+way, simply catch the library specific Exception:</p>
+
+<pre><code class="php">try {
+    $decodeText = FancyLibrary::decode('foo', 'l33t_encoding');
+} catch (FancyException $ex) {
+    $decodeText = 'never_mind';
+}
+</code></pre>
+
+<p>This seems ok, but has a fatal flaw: the <a href="https://secure.php.net/manual/en/function.restore-error-handler.php">restore_error_handler</a> is never called!</p>
+
+<p>All subsequent PHP errors will retain the FancyLibrary error handler:</p>
+
+<pre><code class="php">try {
+    $decodeText = FancyLibrary::decode('foo', 'l33t_encoding');
+} catch (FancyException $ex) {
+    $decodeText = 'never_mind';
+}
+
+$bar = explode([], []);
+// Expected result:     Warning: explode() expects parameter 1 to be string, array given
+// Actual result:       Fatal error: Uncaught FancyException: WUT? explode() expects parameter 1 to be string, array given
+</code></pre>
+
+<p>Live code example: <a href="https://3v4l.org/5kmYF">https://3v4l.org/5kmYF</a></p>
+
+<p>In this specific example no other error handler is involved, but in a modern
+application the app would have previously set a generic error-to-exception
+error handler that would have never been called again, because after the
+first FancyLibrary error, FancyLibrary error handler becomes the active one.</p>
+
+<p>This behaviour is very sneaky:</p>
+
+<ol>
+<li>The program behaviour is different if an error occurs or not in the library</li>
+<li>The user can't do anything: it we try to manually call <a href="https://secure.php.net/manual/en/function.restore-error-handler.php">restore_error_handler</a>
+in the <code>catch</code>, we could reset our own error handler if the library ever decides
+to not use <a href="https://secure.php.net/manual/en/function.set-error-handler.php">set_error_handler</a> anymore</li>
+</ol>
+
+<p>A possible solution is to use <a href="https://secure.php.net/manual/en/function.error-get-last.php">error_get_last</a> along with <a href="https://secure.php.net/manual/en/language.operators.errorcontrol.php">@ error control operator</a>:</p>
+
+<pre><code class="php">class FancyLibrary
+{
+    public static function decode($text, $fromCharset)
+    {
+        error_clear_last();
+
+        $decodedText = @ iconv($fromCharset, 'UTF-8', $text);
+
+        if (null !== ($lastError = error_get_last())) {
+            throw new FancyException('WUT? ' . $lastError['message']);
+        }
+
+        return $decodedText;
+    }
+}
+</code></pre>
+
+<p>Live code example: <a href="https://3v4l.org/rXdMi">https://3v4l.org/rXdMi</a></p>
+
+<p>We now gained a predictable and consistent behaviour for our library, but still
+not everything that glitters is gold: the <a href="https://secure.php.net/manual/en/language.operators.errorcontrol.php">@ error control operator</a> triggers
+a previously set error handler (second paragraph of manual page):</p>
+
+<pre><code class="php">set_error_handler(function ($nr, $message) {
+    throw new \Exception('WUT? ' . $message);
+});
+
+$bar = @ explode([], []);
+</code></pre>
+
+<p>Live code example: <a href="https://3v4l.org/jfW8u">https://3v4l.org/jfW8u</a></p>
+
+<p>So we could end up catching the library specific error that was intended to be
+silenced.</p>
+
+<p>Live code example: <a href="https://3v4l.org/0l1nb">https://3v4l.org/0l1nb</a></p>
+
+<p>The solution is to take care of errors triggered with the <a href="https://secure.php.net/manual/en/language.operators.errorcontrol.php">@ error control operator</a>
+in our application calling <a href="https://secure.php.net/manual/en/function.error-reporting.php">error_reporting</a>, that in this specific context changes
+its returned value:</p>
+
+<pre><code class="php">error_reporting(E_ALL);
+
+var_dump(E_ALL === error_reporting());
+
+set_error_handler(function ($nr, $message) {
+    if (0 === error_reporting()) {
+        return;
+    }
+
+    throw new \Exception('WUT? ' . $message);
+});
+
+$bar = @ explode([], []);
+// No error raised
+
+var_dump(E_ALL === error_reporting());
+</code></pre>
+
+<p>Live code example: <a href="https://3v4l.org/TpsUf">https://3v4l.org/TpsUf</a></p>
+
+<p>At the end of the story:</p>
+
+<ol>
+<li>Libraries should move to <a href="https://secure.php.net/manual/en/function.error-get-last.php">error_get_last</a> along with <a href="https://secure.php.net/manual/en/language.operators.errorcontrol.php">@ error control operator</a></li>
+<li>Users should pay attention to check <code>0 === error_reporting()</code> in their
+own app-specific error handlers</li>
+</ol>
+
+<p>All combined together we get a predictable and sane behaviour.</p>
+
+<p>Live code example: <a href="https://3v4l.org/4aADU">https://3v4l.org/4aADU</a></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[When to declare methods final]]></title>
             <link href="https://slamdunk.github.io/blog/when-to-declare-methods-final/"/>
