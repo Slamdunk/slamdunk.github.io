@@ -1,7 +1,19 @@
 require('../css/app.scss');
 
-require('jquery')
+var jQuery = require('jquery')
 require('bootstrap')
 var hljs = require('highlightjs')
 
 hljs.initHighlightingOnLoad();
+
+(function($){
+    $(function(){
+        $(".twitter-tweet").each(function(){
+            var $this = $(this);
+            twttr.widgets.createTweet(
+                $this.data("tweet-id"),
+                $this.get(0)
+            );
+        });
+    });
+}(jQuery));
