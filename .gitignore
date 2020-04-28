@@ -1,12 +1,10 @@
 /.sculpin/
 /app/cache/*
 /app/config/sculpin_kernel_*.yml
-# /app/config/sculpin_site_*.yml
+/app/config/sculpin_site_*.yml
 /app/logs/*
-/gh-pages-deployment/
 /output_*/
-/source/components/
-/vendor/
+/node_modules/
+/source/build/
 s3.conf
-public_html
-composer.lock
+/vendor/
