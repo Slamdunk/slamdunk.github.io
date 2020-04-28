@@ -20,19 +20,17 @@ use:
             {% endif %}
         </p>
 
-        <p class="post-spec">
-            <time class="post-date" datetime="{{ post.date | date('Y-m-d') }}">
+        {% if post.meta.tags %}
+            <p class="tags">
+            <time class="date" datetime="{{ post.date | date('Y-m-d') }}">
                 {{ post.date | date('Y-m-d') }}
             </time>
-            {% if post.meta.tags %}
-                <span class="post-tags">
-                Tags:
-                {% for tag in post.meta.tags %}
-                <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-                </span>
-            {% endif %}
-        </div>
+            Tags:
+            {% for tag in post.meta.tags %}
+            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+        {% endif %}
     </article>
 {% endfor %}
 {% if page.pagination.previous_page or page.pagination.next_page %}
